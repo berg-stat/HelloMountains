@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Alert } from 'react-native';
 import { MapView } from 'expo';
 
 const db = {
@@ -33,11 +33,15 @@ export default class Map extends React.Component {
         <MapView.Marker
           key={place.id}
           coordinate={{ latitude: place.latitude, longitude: place.longitude }}
-          title={place.name}
+          onPress={() => this.handleMarkerPress(place.name)}
         />
       );
     });
   }
+
+  handleMarkerPress = name => {
+    Alert.alert('Marker is pressed', name);
+  };
 
   render() {
     return (

@@ -8,12 +8,7 @@ import Map from '../components/Map';
 export default class MainView extends React.Component {
   render() {
     return (
-      <View
-        style={{
-          ...styles.containter,
-          ...styles.map
-        }}
-      >
+      <View style={styles.container}>
         <Map />
         <View style={{ marginTop: '7%' }}>
           <PlacesSearchBar />
@@ -30,13 +25,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'space-between'
-  },
-  map: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0
   },
   settingsButton: {
     alignItems: 'flex-end'
