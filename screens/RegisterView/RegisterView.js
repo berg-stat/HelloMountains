@@ -26,7 +26,7 @@ export default class RegisterView extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <TitleBar onPress={this.__goBack.bind(this)}/>
+                <TitleBar title={'Rejestracja'} onPress={this.__goBack.bind(this)}/>
                 <View style={styles.card}>
                     <Text style={styles.infoText}>
                         Stwórz konto
