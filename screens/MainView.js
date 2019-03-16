@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { MapView } from 'expo';
 
 import SettingsButton from '../components/SettingsButton';
-import PlacesSearch from '../components/SearchBar';
+import PlacesSearchBar from '../components/PlacesSearchBar';
+import Map from '../components/Map';
 
 export default class MainView extends React.Component {
   render() {
@@ -14,18 +14,9 @@ export default class MainView extends React.Component {
           ...styles.map
         }}
       >
-        <MapView
-          initialRegion={{
-            latitude: 49.1794,
-            longitude: 20.0881,
-            latitudeDelta: 0.35,
-            longitudeDelta: 0.35
-          }}
-          provider="google"
-          style={styles.map}
-        />
+        <Map />
         <View style={{ marginTop: '7%' }}>
-          <PlacesSearch />
+          <PlacesSearchBar />
         </View>
         <View style={styles.settingsButton}>
           <SettingsButton />
@@ -38,9 +29,7 @@ export default class MainView extends React.Component {
 const styles = StyleSheet.create({
   containter: {
     flex: 1,
-    justifyContent: 'space-between'
-  },
-  map: {
+    justifyContent: 'space-between',
     position: 'absolute',
     top: 0,
     left: 0,
