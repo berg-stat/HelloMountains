@@ -33,15 +33,11 @@ export default class Map extends React.Component {
         <MapView.Marker
           key={place.id}
           coordinate={{ latitude: place.latitude, longitude: place.longitude }}
-          onPress={() => this.handleMarkerPress(place.name)}
+          onPress={() => this.props.onMarkerClick(place.id)}
         />
       );
     });
   }
-
-  handleMarkerPress = name => {
-    Alert.alert('Marker is pressed', name);
-  };
 
   render() {
     return (

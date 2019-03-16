@@ -6,10 +6,19 @@ import PlacesSearchBar from '../components/PlacesSearchBar';
 import Map from '../components/Map';
 
 export default class MainView extends React.Component {
+  navigateToPlace = (id) => {
+    this.props.navigation.navigate('PlaceDetails', {
+      placeId: id,
+      weatherPlaceId: id
+    })
+  };
+
   render() {
     return (
       <View style={styles.container}>
-        <Map />
+        <Map
+          onMarkerClick={this.navigateToPlace}
+        />
         <View style={{ marginTop: '7%' }}>
           <PlacesSearchBar />
         </View>
