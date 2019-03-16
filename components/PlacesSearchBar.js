@@ -1,7 +1,7 @@
 import React from 'react';
 import { SearchBar } from 'react-native-elements';
 
-export default class PlacesSearch extends React.Component {
+export default class PlacesSearchBar extends React.Component {
   constructor(props) {
     super(props);
 
