@@ -28,8 +28,8 @@ export default class TitleBar extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
-    justifyItems: "flex-start",
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
   },
   pageTitle: {
     fontSize: 20,
@@ -38,6 +38,6 @@ const styles = StyleSheet.create({
     marginBottom: '4%',
   },
   returnButton: {
-    justifySelf: "start",
+    alignSelf: 'flex-start',
   },
 });
