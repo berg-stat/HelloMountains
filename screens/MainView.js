@@ -27,9 +27,11 @@ export default class MainView extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  containter: {
+  container: {
     flex: 1,
-    justifyContent: 'space-between',
+    justifyContent: 'space-between'
+  },
+  map: {
     position: 'absolute',
     top: 0,
     left: 0,
