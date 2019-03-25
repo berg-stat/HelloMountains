@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import SettingsButton from '../components/SettingsButton';
-import PlacesSearchBar from '../components/PlacesSearchBar';
-import Map from '../components/Map';
+import SettingsButton from '../../components/SettingsButton';
+import PlacesSearchBar from '../../components/PlacesSearchBar';
+import Map from '../../components/Map';
 
 export default class MainView extends React.Component {
   navigateToPlace = (id) => {
@@ -17,13 +17,13 @@ export default class MainView extends React.Component {
     return (
       <View style={styles.container}>
         <Map
-          onMarkerClick={this.navigateToPlace}
+          onMarkerClick={() => this.navigateToPlace(1)}
         />
         <View style={{ marginTop: '7%' }}>
-          <PlacesSearchBar />
+          <PlacesSearchBar/>
         </View>
         <View style={styles.settingsButton}>
-          <SettingsButton />
+          <SettingsButton/>
         </View>
       </View>
     );

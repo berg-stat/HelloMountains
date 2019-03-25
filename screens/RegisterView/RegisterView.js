@@ -1,6 +1,9 @@
-import React, {Component} from 'react';
-import {Alert, TextInput, View, TouchableWithoutFeedback, Text} from 'react-native';
-import TitleBar from "../../components/TitleBar";
+import React, { Component } from 'react';
+import { TextInput, View, Text } from 'react-native';
+
+import TitleBar from '../../components/TitleBar';
+import Button from '../../components/Button';
+import Input from '../../components/Input';
 import styles from './styles';
 
 
@@ -23,49 +26,55 @@ export default class RegisterView extends Component {
     this.props.navigation.goBack();
   };
 
+  __onUserNameChange = (username) => {
+    this.setState({ username });
+  };
+
+  __onEmailChange = (email) => {
+    this.setState({ email });
+  };
+
+  __renderForm = () => {
+    return (
+      <View style={styles.card}>
+        <Text style={styles.infoText}>
+          Stwórz konto
+        </Text>
+        <Input
+          value={this.state.username}
+          onChange={this.__onUserNameChange}
+          placeholder="Username"
+        />
+        <Input
+          value={this.state.email}
+          onChange={this.__onEmailChange}
+          placeholder="E-mail"
+        />
+        <Input
+          value={this.state.password}
+          onChange={(password) => this.setState({ password })}
+          placeholder="Password"
+          secureText
+        />
+        <Input
+          value={this.state.password}
+          onChange={(password) => this.setState({ password })}
+          placeholder="Confirm password"
+          secureText
+        />
+        <Text style={styles.infoText}>
+          Klikając zarejestruj, akceptujesz naszą politykę prywatności.
+        </Text>
+      </View>
+    );
+  };
+
   render() {
     return (
       <View style={styles.container}>
-        <TitleBar title={'Rejestracja'} onPress={this.__goBack}/>
-        <View style={styles.card}>
-          <Text style={styles.infoText}>
-            Stwórz konto
-          </Text>
-          <TextInput
-            value={this.state.username}
-            onChangeText={(username) => this.setState({username})}
-            placeholder={'Username'}
-            style={styles.input}
-          />
-          <TextInput
-            value={this.state.email}
-            onChangeText={(email) => this.setState({email})}
-            placeholder={'E-mail'}
-            style={styles.input}
-          />
-          <TextInput
-            value={this.state.password}
-            onChangeText={(password) => this.setState({password})}
-            placeholder={'Password'}
-            secureTextEntry={true}
-            style={styles.input}
-          />
-          <TextInput
-            value={this.state.password}
-            //onChangeText={(password) => this.setState({ password })}
-            placeholder={'Confirm password'}
-            secureTextEntry={true}
-            style={styles.input}
-          />
-          <Text style={styles.infoText}>
-            Klikając zarejestruj, akceptujesz naszą politykę prywatności.
-          </Text>
-        </View>
-        <TouchableWithoutFeedback onPress={this.__onRegister}>
-          <View style={styles.button}>
-            <Text style={styles.buttonLabel}>ZAREJESTRUJ</Text>
-          </View>
-        </TouchableWithoutFeedback>
+        <TitleBar title="Rejestracja" onPress={this.__goBack} />
+        {this.__renderForm()}
+        <Button onPress={this.__onRegister} label="Zarejestruj"/>
       </View>
     );
   }

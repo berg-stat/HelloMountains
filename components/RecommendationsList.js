@@ -1,9 +1,8 @@
 import React from "react";
-import { View } from 'react-native';
+import { View, FlatList } from 'react-native';
 import PropTypes from 'prop-types';
 
 import Recommendation from './Recommendation'
-
 
 
 export default class RecommendationsList extends React.Component {
@@ -12,22 +11,21 @@ export default class RecommendationsList extends React.Component {
   };
 
   __renderRecommendations() {
-    const recommendationList = this.props.items;
+    const recommendationList = this.props.items.map(recommendation => ({
+      ...recommendation,
+      key: recommendation.name
+    }));
     return (
-      recommendationList.map( recom => {
-        return (
-          <Recommendation
-            key={recom.id}
-            recommendation={recom}
-          />
-        )
-      })
+      <FlatList
+        data={recommendationList}
+        renderItem={({ item }) => <Recommendation recommendation={item}/>}
+      />
     );
   }
 
   render() {
     return (
-      <View>
+      <View style={{ width: '80%'}}>
         {this.__renderRecommendations()}
       </View>
     );

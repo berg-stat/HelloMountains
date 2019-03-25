@@ -1,9 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, Alert } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import PropTypes from 'prop-types';
-import TitleBar from "../components/TitleBar";
-import WeatherDetails from "../components/WeatherDetails";
-import RecommendationsList from "../components/RecommendationsList";
+import TitleBar from '../../components/TitleBar';
+import WeatherDetails from '../../components/WeatherDetails';
+import RecommendationsList from '../../components/RecommendationsList';
+import Button from '../../components/Button';
 
 const db = {
   placeId: {
@@ -22,6 +23,16 @@ const db = {
         rating: 3,
         text: "tak srednio srednio bym powiedzial",
       },
+      {
+        id: 3,
+        rating: 4,
+        text: "tak srednio srednio bym powiedzial",
+      },
+      {
+        id: 4,
+        rating: 1,
+        text: "tak srednio srednio bym powiedzial",
+      },
     ]
   }
 };
@@ -38,6 +49,7 @@ export default class PlaceDetailsView extends React.Component {
   static propTypes = {
     placeId: PropTypes.number.isRequired,
     weatherPlaceId: PropTypes.number.isRequired,
+    navigation: PropTypes.object.isRequired,
   };
 
   constructor(props) {
@@ -74,19 +86,27 @@ export default class PlaceDetailsView extends React.Component {
     })
   }
 
+  __goBack = () => {
+    this.props.navigation.goBack();
+  };
+
+  __addRecommendation = () => {
+    this.props.navigation.navigate('AddRecommendation', { placeId: this.props.placeId });
+  };
+
   render() {
     const { placeName } = this.state.placeInfo;
     const weather = this.state.weatherInfo;
     const { recommendations } = this.state;
     return (
-      <View style={ styles.container }>
-        <TitleBar title={ placeName }/>
-        <WeatherDetails data={ weather }/>
-        <RecommendationsList items={ recommendations }/>
+      <View style={styles.container}>
+        <TitleBar onPress={this.__goBack} title={placeName}/>
+        <WeatherDetails data={weather}/>
+        <RecommendationsList items={recommendations}/>
         <Button
-          onPress={ () => { Alert.alert("Dodawanie rekomendacji") } }
-          title="Add recommendation"
-          />
+          label={'Add recommendation'}
+          onPress={this.__addRecommendation}
+        />
       </View>
     );
   }
@@ -95,8 +115,9 @@ export default class PlaceDetailsView extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    padding: 20,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
   },
 });

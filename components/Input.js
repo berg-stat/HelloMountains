@@ -21,6 +21,7 @@ export default class Input extends React.Component {
         placeholder={this.props.placeholder}
         style={styles.input}
         secureTextEntry={this.props.secureText}
+        placeholderTextColor={COLOR.SLATE_GRAY}
       />
     );
   }
@@ -28,12 +29,14 @@ export default class Input extends React.Component {
 
 const styles = StyleSheet.create({
   input: {
-    height: '33%',
+    height: 50,
+    width: '100%',
     padding: 10,
     paddingLeft: 20,
     borderWidth: 1,
     borderColor: COLOR.LIGHT_SLATE_GRAY,
     borderRadius: 20,
     marginBottom: 10,
+    color: COLOR.DIM_GRAY,
   },
 });

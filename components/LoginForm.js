@@ -1,7 +1,9 @@
-import React, {Component} from 'react';
-import {Alert, TextInput, View, TouchableHighlight, Text} from 'react-native';
+import React, { Component } from 'react';
+import { View, StyleSheet } from 'react-native';
 
-import styles from './styles';
+import COLOR from '../consts/colors';
+import Input from '../components/Input';
+import Button from '../components/Button';
 
 export default class LoginForm extends Component {
   constructor(props) {
@@ -13,6 +15,14 @@ export default class LoginForm extends Component {
     };
   }
 
+  __onUserNameChange = (username) => {
+    this.setState({ username });
+  };
+
+  __onPasswordChange = (password) => {
+    this.setState({ password });
+  };
+
   __onLogin = () => {
     this.props.navigation.navigate('Main');
   };
@@ -21,33 +31,55 @@ export default class LoginForm extends Component {
     this.props.navigation.navigate('Register');
   };
 
+  __renderInputs = () => {
+    return (
+      <View style={styles.subContainer}>
+        <Input
+          value={this.state.username}
+          onChange={this.__onUserNameChange}
+          placeholder="Username"
+        />
+        <Input
+          value={this.state.password}
+          onChange={this.__onPasswordChange}
+          placeholder="Password"
+          secureText
+        />
+      </View>
+    );
+  };
+
+  __renderButtons = () => {
+    return (
+      <View style={styles.subContainer}>
+        <Button label="Zaloguj" onPress={this.__onLogin}/>
+        <Button label="Rejestracja" onPress={this.__onRegister}/>
+      </View>
+    );
+  };
+
   render() {
     return (
       <View style={styles.container}>
-        <TextInput
-          value={this.state.username}
-          onChangeText={(username) => this.setState({username})}
-          placeholder={'Username'}
-          style={styles.input}
-        />
-        <TextInput
-          value={this.state.password}
-          onChangeText={(password) => this.setState({password})}
-          placeholder={'Password'}
-          secureTextEntry={true}
-          style={styles.input}
-        />
-        <View style={styles.button}>
-          <TouchableHighlight onPress={this.__onLogin} underlayColor={COLOR.DIM_GRAY}>
-            <Text style={styles.buttonLabel}>ZALOGUJ</Text>
-          </TouchableHighlight>
-        </View>
-        <View style={styles.button}>
-          <TouchableHighlight onPress={this.__onRegister} underlayColor={COLOR.DIM_GRAY}>
-            <Text style={styles.buttonLabel}>REJESTRACJA</Text>
-          </TouchableHighlight>
-        </View>
+        {this.__renderInputs()}
+        {this.__renderButtons()}
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    height: '100%',
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: COLOR.WHITE,
+    padding: '15%',
+  },
+  subContainer: {
+    width: '100%',
+    alignItems: 'center',
+  },
+});
