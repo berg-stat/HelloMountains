@@ -8,17 +8,17 @@ import COLOR from '../consts/colors';
 const styles = StyleSheet.create({
   button: {
     height: 50,
-    width: '80%',
-    borderWidth: 1,
-    borderRadius: 20,
+    width: '100%',
+    borderRadius: 25,
+    marginTop: 10,
     marginBottom: 10,
-    borderColor: COLOR.LIGHT_SLATE_GRAY,
-    backgroundColor: COLOR.DIM_GRAY,
+    borderColor: COLOR.WHITE,
+    backgroundColor: COLOR.DARK_BLUE,
     alignItems: 'center',
     justifyContent: 'center',
   },
   buttonLabel: {
-    color: COLOR.TEXT,
+    color: COLOR.WHITE,
     textShadowRadius: 10,
     textShadowColor: COLOR.LIGHT_SLATE_GRAY,
   },
@@ -35,7 +35,7 @@ export default class Button extends React.Component {
       <TouchableHighlight
         style={styles.button}
         onPress={this.props.onPress}
-        underlayColor={COLOR.DIM_GRAY}
+        underlayColor={COLOR.DARK_BLUE}
       >
         <Text style={styles.buttonLabel}>{this.props.label.toUpperCase()}</Text>
       </TouchableHighlight>
