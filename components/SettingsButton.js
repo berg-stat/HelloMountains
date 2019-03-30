@@ -8,9 +8,7 @@ export default class SettingsButton extends React.Component {
   render() {
     return (
       <TouchableWithoutFeedback
-        onPress={() => {
-          Alert.alert('User Settings!');
-        }}
+        onPress={this.props.onPress}
       >
         <Icon name="settings" size={50} color={COLOR.DARK_BLUE}/>
       </TouchableWithoutFeedback>

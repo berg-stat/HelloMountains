@@ -33,6 +33,10 @@ export default class MainView extends React.Component {
     });
   };
 
+  navigateToUserSettings = () => {
+    this.props.navigation.navigate('UserSettings');
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -43,7 +47,7 @@ export default class MainView extends React.Component {
           <PlacesSearchBar/>
         </View>
         <View style={styles.settingsButton}>
-          <SettingsButton/>
+          <SettingsButton onPress={this.navigateToUserSettings}/>
         </View>
       </View>
     );
