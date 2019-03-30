@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
-import {ImageBackground, View, Text} from 'react-native';
-import LoginForm from "../LoginForm/LoginForm";
+import { ImageBackground, View, Text } from 'react-native';
+import PropTypes from 'prop-types';
+
+import LoginForm from '../../components/LoginForm';
 import styles from './styles';
 
 export default class LoginView extends Component {
+  static propTypes = {
+    navigation: PropTypes.shape({
+      navigate: PropTypes.func.isRequired,
+      goBack: PropTypes.func.isRequired,
+    }).isRequired,
+  };
 
   render() {
     return (
@@ -13,13 +21,9 @@ export default class LoginView extends Component {
           style={styles.image}
         >
           <View style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
+            height: '100%',
             justifyContent: 'center',
-            alignItems: 'center'
+            alignItems: 'center',
           }}>
             <Text style={styles.appName}>
               Hello Mountains!
@@ -29,5 +33,5 @@ export default class LoginView extends Component {
         <LoginForm navigation={this.props.navigation}/>
       </View>
     );
-    }
+  }
 }

@@ -6,11 +6,11 @@ export default class PlacesSearchBar extends React.Component {
     super(props);
 
     this.state = {
-      search: ''
+      search: '',
     };
   }
 
-  updateSearch = search => {
+  updateSearch = (search) => {
     this.setState({ search });
   };
 
