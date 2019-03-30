@@ -27,7 +27,7 @@ export default StyleSheet.create({
     fontSize: 15,
     width: '80%',
     textAlign: 'center',
-    color: '#7fb9f2',
+    color: COLOR.INFO_TEXT,
   },
   confirmButton: {
     width: '80%',

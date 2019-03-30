@@ -10,4 +10,5 @@ export default {
   DARK_BLUE: '#0052a5',
   INPUT_PLACEHOLDER: '#e6e6e6',
   BACKGROUND: '#0073e6',
+  INFO_TEXT: '#7fb9f2',
 };
