@@ -8,6 +8,13 @@ import styles from './styles';
 
 
 export default class UserSettingsView extends Component {
+  static propTypes = {
+    navigation: PropTypes.shape({
+      navigate: PropTypes.func.isRequired,
+      goBack: PropTypes.func.isRequired,
+    }).isRequired,
+  };
+
   constructor(props) {
     super(props);
 
@@ -25,6 +32,10 @@ export default class UserSettingsView extends Component {
   onEmailChange = (email) => {
     this.setState({ email });
   };
+
+  signOut = () => {
+    this.props.navigation.navigate('Login');
+  }
 
   renderForm = () => (
     <View style={styles.userDataForm}>
@@ -52,7 +63,7 @@ export default class UserSettingsView extends Component {
           <Button label="Zmień hasło" />
         </View>
         <View style={styles.signOutTextContainter}>
-          <Text style={styles.signOutText}>Wyloguj się</Text>
+          <Text onPress={this.signOut} style={styles.signOutText}>Wyloguj się</Text>
         </View>
       </View>
     );
