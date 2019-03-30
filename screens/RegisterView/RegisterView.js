@@ -30,8 +30,8 @@ export default class RegisterView extends Component {
     this.props.navigation.navigate('Main');
   };
 
-  goBack = () => {
-    this.props.navigation.goBack();
+  onNavigateToLogin = () => {
+    this.props.navigation.navigate('Login');
   };
 
   onUserNameChange = (username) => {
@@ -43,14 +43,11 @@ export default class RegisterView extends Component {
   };
 
   renderForm = () => (
-    <View style={styles.card}>
-      <Text style={styles.infoText}>
-        Stwórz konto
-      </Text>
+    <View style={styles.registrationForm}>
       <Input
         value={this.state.username}
         onChange={this.onUserNameChange}
-        placeholder="Username"
+        placeholder="Nazwa użytkownika"
       />
       <Input
         value={this.state.email}
@@ -60,27 +57,36 @@ export default class RegisterView extends Component {
       <Input
         value={this.state.password}
         onChange={password => this.setState({ password })}
-        placeholder="Password"
+        placeholder="Hasło"
         secureText
       />
       <Input
         value={this.state.password}
         onChange={password => this.setState({ password })}
-        placeholder="Confirm password"
+        placeholder="Powtórz hasło"
         secureText
       />
-      <Text style={styles.infoText}>
-        Klikając zarejestruj, akceptujesz naszą politykę prywatności.
-      </Text>
+
     </View>
   );
 
   render() {
     return (
       <View style={styles.container}>
-        <TitleBar title="Rejestracja" onPress={this.goBack}/>
+        <Text style={styles.titleText}>
+          Stwórz konto
+        </Text>
         {this.renderForm()}
-        <Button onPress={this.onRegister} label="Zarejestruj"/>
+        <View style={styles.confirmButton}>
+          <Button onPress={this.onRegister} label="Zarejestruj" />
+        </View>
+        <Text style={styles.loginRedirection}>
+          Masz już konto?{" "}
+          <Text onPress={this.onNavigateToLogin} style={{textDecorationLine: "underline"}}>Przejdź do logowania </Text>
+        </Text>
+        <Text style={styles.infoText}>
+          Klikając zarejestruj, akceptujesz naszą politykę prywatności.
+        </Text>
       </View>
     );
   }
