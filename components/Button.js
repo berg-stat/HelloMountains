@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, TouchableHighlight, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
+import { LinearGradient } from 'expo';
 
 import COLOR from '../consts/colors';
 
@@ -37,7 +38,7 @@ export default class Button extends React.Component {
         onPress={this.props.onPress}
         underlayColor={COLOR.DARK_BLUE}
       >
-        <Text style={styles.buttonLabel}>{this.props.label.toUpperCase()}</Text>
+          <Text style={styles.buttonLabel}>{this.props.label.toUpperCase()}</Text>
       </TouchableHighlight>
     );
   }

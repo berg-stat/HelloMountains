@@ -12,6 +12,7 @@ export default StyleSheet.create({
   titleContainer: {
     flex: 1,
     height: '100%',
+    width: '100%',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
@@ -23,7 +24,9 @@ export default StyleSheet.create({
   titleText: {
     color: COLOR.WHITE,
     fontSize: 35,
+    width: '100%',
     fontWeight: 'bold',
+    textAlign: 'center',
     textShadowColor: COLOR.DARK_BLUE,
     textShadowOffset: {width: 3, height: 3},
     textShadowRadius: 4,

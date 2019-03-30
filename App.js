@@ -7,6 +7,7 @@ import LoginView from './screens/LoginView/LoginView';
 import PlaceDetailsView from './screens/PlaceDetailsView/PlaceDetailsView';
 import AddRecommendationView from './screens/AddRecommendationView/AddRecommendationView';
 
+import UserSettingsView from './screens/UserSettingsView/UserSettingsView';
 
 const RootStack = createStackNavigator(
   {
@@ -15,6 +16,7 @@ const RootStack = createStackNavigator(
     Main: MainView,
     PlaceDetails: PlaceDetailsView,
     AddRecommendation: AddRecommendationView,
+    UserSettings: UserSettingsView,
   },
   {
     initialRouteName: 'Login',
