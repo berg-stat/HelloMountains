@@ -11,11 +11,11 @@ const styles = StyleSheet.create({
     width: '100%',
     padding: 10,
     paddingLeft: 20,
-    borderWidth: 1,
-    borderColor: COLOR.LIGHT_SLATE_GRAY,
-    borderRadius: 20,
+    borderBottomColor: COLOR.WHITE,
+    borderBottomWidth: 2,
     marginBottom: 10,
-    color: COLOR.DIM_GRAY,
+    fontSize: 16,
+    color: COLOR.WHITE,
   },
 });
 
@@ -35,7 +35,7 @@ export default class Input extends React.Component {
         placeholder={this.props.placeholder}
         style={styles.input}
         secureTextEntry={this.props.secureText}
-        placeholderTextColor={COLOR.SLATE_GRAY}
+        placeholderTextColor={COLOR.INPUT_PLACEHOLDER}
       />
     );
   }

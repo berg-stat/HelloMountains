@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { ImageBackground, View, Text } from 'react-native';
+import { Image, View, Text } from 'react-native';
 import PropTypes from 'prop-types';
 
 import LoginForm from '../../components/LoginForm';
 import styles from './styles';
+
 
 export default class LoginView extends Component {
   static propTypes = {
@@ -16,20 +17,10 @@ export default class LoginView extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <ImageBackground
-          source={require('../../assets/homePagePhoto.jpg')}
-          style={styles.image}
-        >
-          <View style={{
-            height: '100%',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}>
-            <Text style={styles.appName}>
-              Hello Mountains!
-            </Text>
-          </View>
-        </ImageBackground>
+        <View style={styles.titleContainer}>
+          <Image source={require('../../assets/appLogo.png')} style={styles.imageSize}/>
+          <Text style={styles.titleText}>Hello Mountains</Text>
+        </View>
         <LoginForm navigation={this.props.navigation}/>
       </View>
     );

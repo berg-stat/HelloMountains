@@ -14,12 +14,12 @@ const styles = StyleSheet.create({
     width: '100%',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: COLOR.WHITE,
     padding: '15%',
   },
   subContainer: {
     width: '100%',
     alignItems: 'center',
+    marginBottom: 20,
   },
 });
 

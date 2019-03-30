@@ -7,4 +7,7 @@ export default {
   SLATE_GRAY: '#5A5D6D',
   TEXT: '#DEE2EC',
   WHITE: '#FFF',
+  DARK_BLUE: '#0052a5',
+  INPUT_PLACEHOLDER: '#e6e6e6',
+  BACKGROUND: '#0073e6',
 };
