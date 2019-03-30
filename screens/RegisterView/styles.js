@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
 import COLOR from '../../consts/colors';
 
+
 export default StyleSheet.create({
   container: {
     flex: 1,
@@ -8,19 +9,32 @@ export default StyleSheet.create({
     height: '100%',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: COLOR.WHITE,
+    backgroundColor: COLOR.BACKGROUND,
   },
-  card: {
-    backgroundColor: COLOR.LIGHT_DIM_GRAY,
-    width: '80%',
+  registrationForm: {
+    backgroundColor: COLOR.BACKGROUND,
+    width: '90%',
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
     marginBottom: 20,
   },
+  titleText: {
+    color: COLOR.WHITE,
+    fontSize: 36,
+  },
   infoText: {
     fontSize: 15,
+    width: '80%',
+    textAlign: 'center',
+    color: COLOR.INFO_TEXT,
+  },
+  confirmButton: {
+    width: '80%',
+  },
+  loginRedirection: {
+    fontSize: 15,
     margin: '6%',
-    alignSelf: 'center',
+    color: COLOR.WHITE,
   },
 });
