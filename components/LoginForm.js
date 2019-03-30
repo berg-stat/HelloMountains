@@ -1,72 +1,11 @@
 import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
+import PropTypes from 'prop-types';
 
 import COLOR from '../consts/colors';
-import Input from '../components/Input';
-import Button from '../components/Button';
+import Input from './Input';
+import Button from './Button';
 
-export default class LoginForm extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      username: '',
-      password: '',
-    };
-  }
-
-  __onUserNameChange = (username) => {
-    this.setState({ username });
-  };
-
-  __onPasswordChange = (password) => {
-    this.setState({ password });
-  };
-
-  __onLogin = () => {
-    this.props.navigation.navigate('Main');
-  };
-
-  __onRegister = () => {
-    this.props.navigation.navigate('Register');
-  };
-
-  __renderInputs = () => {
-    return (
-      <View style={styles.subContainer}>
-        <Input
-          value={this.state.username}
-          onChange={this.__onUserNameChange}
-          placeholder="Username"
-        />
-        <Input
-          value={this.state.password}
-          onChange={this.__onPasswordChange}
-          placeholder="Password"
-          secureText
-        />
-      </View>
-    );
-  };
-
-  __renderButtons = () => {
-    return (
-      <View style={styles.subContainer}>
-        <Button label="Zaloguj" onPress={this.__onLogin}/>
-        <Button label="Rejestracja" onPress={this.__onRegister}/>
-      </View>
-    );
-  };
-
-  render() {
-    return (
-      <View style={styles.container}>
-        {this.__renderInputs()}
-        {this.__renderButtons()}
-      </View>
-    );
-  }
-}
 
 const styles = StyleSheet.create({
   container: {
@@ -83,3 +22,69 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
+
+export default class LoginForm extends Component {
+  static propTypes = {
+    navigation: PropTypes.shape({
+      navigate: PropTypes.func.isRequired,
+      goBack: PropTypes.func.isRequired,
+    }).isRequired,
+  };
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      username: '',
+      password: '',
+    };
+  }
+
+  onUserNameChange = (username) => {
+    this.setState({ username });
+  };
+
+  onPasswordChange = (password) => {
+    this.setState({ password });
+  };
+
+  onLogin = () => {
+    this.props.navigation.navigate('Main');
+  };
+
+  onRegister = () => {
+    this.props.navigation.navigate('Register');
+  };
+
+  renderInputs = () => (
+    <View style={styles.subContainer}>
+      <Input
+        value={this.state.username}
+        onChange={this.onUserNameChange}
+        placeholder="Username"
+      />
+      <Input
+        value={this.state.password}
+        onChange={this.onPasswordChange}
+        placeholder="Password"
+        secureText
+      />
+    </View>
+  );
+
+  renderButtons = () => (
+    <View style={styles.subContainer}>
+      <Button label="Zaloguj" onPress={this.onLogin}/>
+      <Button label="Rejestracja" onPress={this.onRegister}/>
+    </View>
+  );
+
+  render() {
+    return (
+      <View style={styles.container}>
+        {this.renderInputs()}
+        {this.renderButtons()}
+      </View>
+    );
+  }
+}

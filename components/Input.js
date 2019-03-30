@@ -5,6 +5,20 @@ import PropTypes from 'prop-types';
 import COLOR from '../consts/colors';
 
 
+const styles = StyleSheet.create({
+  input: {
+    height: 50,
+    width: '100%',
+    padding: 10,
+    paddingLeft: 20,
+    borderWidth: 1,
+    borderColor: COLOR.LIGHT_SLATE_GRAY,
+    borderRadius: 20,
+    marginBottom: 10,
+    color: COLOR.DIM_GRAY,
+  },
+});
+
 export default class Input extends React.Component {
   static propTypes = {
     value: PropTypes.string,
@@ -26,17 +40,3 @@ export default class Input extends React.Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  input: {
-    height: 50,
-    width: '100%',
-    padding: 10,
-    paddingLeft: 20,
-    borderWidth: 1,
-    borderColor: COLOR.LIGHT_SLATE_GRAY,
-    borderRadius: 20,
-    marginBottom: 10,
-    color: COLOR.DIM_GRAY,
-  },
-});

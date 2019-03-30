@@ -5,25 +5,6 @@ import PropTypes from 'prop-types';
 import COLOR from '../consts/colors';
 
 
-export default class Button extends React.Component {
-  static propTypes = {
-    onPress: PropTypes.func.isRequired,
-    label: PropTypes.string.isRequired,
-  };
-
-  render() {
-    return (
-      <TouchableHighlight
-        style={styles.button}
-        onPress={this.props.onPress}
-        underlayColor={COLOR.DIM_GRAY}
-      >
-        <Text style={styles.buttonLabel}>{this.props.label.toUpperCase()}</Text>
-      </TouchableHighlight>
-    );
-  }
-}
-
 const styles = StyleSheet.create({
   button: {
     height: 50,
@@ -42,3 +23,22 @@ const styles = StyleSheet.create({
     textShadowColor: COLOR.LIGHT_SLATE_GRAY,
   },
 });
+
+export default class Button extends React.Component {
+  static propTypes = {
+    onPress: PropTypes.func.isRequired,
+    label: PropTypes.string.isRequired,
+  };
+
+  render() {
+    return (
+      <TouchableHighlight
+        style={styles.button}
+        onPress={this.props.onPress}
+        underlayColor={COLOR.DIM_GRAY}
+      >
+        <Text style={styles.buttonLabel}>{this.props.label.toUpperCase()}</Text>
+      </TouchableHighlight>
+    );
+  }
+}

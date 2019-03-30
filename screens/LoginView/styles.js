@@ -1,10 +1,10 @@
-import { StyleSheet } from "react-native";
-import COLOR from "../../consts/colors";
+import { StyleSheet } from 'react-native';
+import COLOR from '../../consts/colors';
 
-export default styles = StyleSheet.create({
+export default StyleSheet.create({
   container: {
     width: '100%',
-    ...StyleSheet.absoluteFill
+    ...StyleSheet.absoluteFill,
   },
   image: {
     flex: 1,
@@ -14,5 +14,5 @@ export default styles = StyleSheet.create({
     fontSize: 28,
     fontWeight: 'bold',
     color: COLOR.WHITE,
-  }
+  },
 });

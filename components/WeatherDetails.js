@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import { View, Text } from 'react-native';
 import PropTypes from 'prop-types';
 
@@ -9,7 +9,7 @@ export default class WeatherDetails extends React.Component {
   };
 
   render() {
-    const temperature = this.props.data.temperature;
+    const { temperature } = this.props.data;
     return (
       <View>
         <Text>Temperatura {temperature}</Text>

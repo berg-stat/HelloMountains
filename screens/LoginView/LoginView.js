@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
 import { ImageBackground, View, Text } from 'react-native';
-import LoginForm from "../../components/LoginForm";
+import PropTypes from 'prop-types';
+
+import LoginForm from '../../components/LoginForm';
 import styles from './styles';
 
 export default class LoginView extends Component {
+  static propTypes = {
+    navigation: PropTypes.shape({
+      navigate: PropTypes.func.isRequired,
+      goBack: PropTypes.func.isRequired,
+    }).isRequired,
+  };
 
   render() {
     return (
