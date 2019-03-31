@@ -5,6 +5,8 @@ import TitleBar from '../../components/TitleBar';
 import WeatherDetails from '../../components/WeatherDetails';
 import RecommendationsList from '../../components/RecommendationsList';
 import Button from '../../components/Button';
+import styles from './styles';
+
 
 const db = {
   placeId: {
@@ -44,17 +46,6 @@ const weatherApi = {
   },
 };
 
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
-    marginTop: '10%',
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-});
 
 export default class PlaceDetailsView extends React.Component {
   static propTypes = {

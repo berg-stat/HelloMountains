@@ -1,23 +1,11 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 import PropTypes from 'prop-types';
 
 import SettingsButton from '../../components/SettingsButton';
 import PlacesSearchBar from '../../components/PlacesSearchBar';
 import Map from '../../components/Map';
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'space-between',
-  },
-  settingsButton: {
-    alignItems: 'flex-end',
-  },
-  placesSearchBar: {
-    marginTop: '7%',
-  },
-});
+import styles from './styles';
 
 export default class MainView extends React.Component {
   static propTypes = {
