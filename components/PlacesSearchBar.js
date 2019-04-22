@@ -1,5 +1,8 @@
 import React from 'react';
 import { SearchBar } from 'react-native-elements';
+import { StyleSheet } from 'react-native';
+import COLOR from '../consts/colors';
+
 
 export default class PlacesSearchBar extends React.Component {
   constructor(props) {
@@ -17,11 +20,39 @@ export default class PlacesSearchBar extends React.Component {
   render() {
     return (
       <SearchBar
-        placeholder="Search for place"
-        onChangeText={this.updateSearch}
+        placeholder="Wyszukaj miejsce..."
+        onChangeText={
+          this.updateSearch}
         value={this.state.search}
-        lightTheme={true}
+        inputStyle={styles.inputStyle}
+        placeholderTextColor={COLOR.WHITE}
+        inputContainerStyle={styles.inputStyleContainer}
+        containerStyle={styles.containerStyle}
       />
     );
   }
 }
+
+const styles = StyleSheet.create({
+  inputStyle: {
+    width: '100%',
+    fontSize: 16,
+    opacity: 1,
+    color: COLOR.WHITE,
+  },
+  containerStyle: {
+    margin: 10,
+    backgroundColor: COLOR.DARK_BLUE,
+    color: COLOR.WHITE,
+    borderRadius: 35,
+    borderBottomWidth: 0,
+    borderTopWidth: 0,
+    opacity: 1,
+  },
+  inputStyleContainer: {
+    backgroundColor: COLOR.DARK_BLUE,
+    borderRadius: 25,
+    opacity: 1,
+
+  },
+});
