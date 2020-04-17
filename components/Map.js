@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { ActivityIndicator, Alert, Platform, StyleSheet, View } from 'react-native';
-import { MapView } from 'expo';
+import MapView from 'react-native-maps';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
