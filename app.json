@@ -3,10 +3,11 @@
     "name": "Hello Mountains",
     "slug": "HelloMountains",
     "privacy": "public",
-    "sdkVersion": "32.0.0",
+    "sdkVersion": "37.0.0",
     "platforms": [
       "ios",
-      "android"
+      "android",
+      "web"
     ],
     "version": "1.0.0",
     "orientation": "portrait",
@@ -22,11 +23,7 @@
     "assetBundlePatterns": [
       "**/*"
     ],
-    "android": {
-      "package": "ml.mountains.hello"
-    },
     "ios": {
-      "bundleIdentifier": "ml.mountains.hello",
       "supportsTablet": true
     }
   }
