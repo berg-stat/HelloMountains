@@ -36,9 +36,9 @@ export default class MapView extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Map
-          onMarkerClick={(placeName) => this.navigateToPlace(placeName)}
-        />
+        {/*<Map*/}
+        {/*  onMarkerClick={(placeName) => this.navigateToPlace(placeName)}*/}
+        {/*/>*/}
         <View style={styles.placesSearchBar}>
           <PlacesSearchBar/>
         </View>
