@@ -11,7 +11,7 @@ import OpinionFormView from './screens/OpinionFormView';
 import AuthLoadingView from './screens/AuthLoadingView';
 
 
-axios.defaults.baseURL = 'http://192.168.1.12:3650/api/v1/';
+axios.defaults.baseURL = process.env.API_BASE_URL || 'http://192.168.1.12:3650/api/v1';
 
 const AppStack = createStackNavigator({
   Map: MapView,

@@ -66,6 +66,7 @@ export default class PlaceDetailsView extends Component {
     const { placeName, username } = this.state;
     return (
       <View style={styles.container}>
+
         <DetailsPanel placeName={placeName}/>
         <RecommendationsList placeName={placeName} username={username} onRecommendationEdit={this.navigateToEditRecommendation}/>
         <View style={styles.addRecommendationButton}>
@@ -74,6 +75,7 @@ export default class PlaceDetailsView extends Component {
             onPress={this.addRecommendation}
           />
         </View>
+
       </View>
     );
   };

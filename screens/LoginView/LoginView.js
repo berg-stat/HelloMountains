@@ -51,17 +51,21 @@ export default class LoginView extends Component {
       <ImageBackground source={require('../../assets/backgroundImage.png')} style={{ width: '100%', height: '100%' }}>
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.container}>
-          <View style={styles.titleContainer}>
-              <Image source={require('../../assets/appLogo.png')} style={styles.imageSize}/>
-              <Text style={styles.titleText}>Hello Mountains</Text>
+
+            <View style={styles.titleContainer}>
+                <Image source={require('../../assets/appLogo.png')} style={styles.imageSize}/>
+                <Text style={styles.titleText}>Hello Mountains</Text>
             </View>
+
             <LoginForm
               navigation={this.props.navigation}
               setLoaderState={this.setLoaderState}
             />
+
           </View>
         </TouchableWithoutFeedback>
         {isLoading && (<ActivityIndicator style={styles.loader} size={Platform.OS === 'android' ? 70 : 'large'} color={COLOR.WHITE}/>)}
+
       </ImageBackground>
     );
   }
